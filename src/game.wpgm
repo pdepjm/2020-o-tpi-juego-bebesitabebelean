@@ -1,8 +1,20 @@
 import wollok.game.*
-import pepita.*
+import estudiante.*
+import nivel.*
+import extras.*
 
 program game {
-	game.title("Juego Base")
-	game.addVisual(pepita)
+	game.title("UTN Simulator")
+	game.height(20)
+	game.width(30)
+	game.boardGround("Apartment.png")
+	game.addVisual(estudiante)
+	game.showAttributes(estudiante)
+	game.addVisual(escritorio)
+	game.addVisual(horno)
+	game.addVisual(banio)
+	game.addVisual(cama)
+	game.addVisual(playStation)
+	config.configurarTeclas()
 	game.start()
 }
