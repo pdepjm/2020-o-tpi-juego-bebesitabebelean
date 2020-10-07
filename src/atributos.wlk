@@ -1,9 +1,12 @@
+import wollok.game.*
+
 class Atributo{
 
     var nivel 
 
-    method aumentar(cantidad){
+    const property position
 
+    method aumentar(cantidad){
         nivel = 100.min(nivel + cantidad)
     }
 
@@ -13,6 +16,8 @@ class Atributo{
     }
 
     method nivel() = nivel
+
+    //method image()
 }
 
 

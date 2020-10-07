@@ -10,7 +10,7 @@ object config {
 		keyboard.up().onPressDo({if (estudiante.position().y() != 19) {estudiante.irA(estudiante.position().up(1))}})
 		keyboard.down().onPressDo({if (estudiante.position().y() != 0) {estudiante.irA(estudiante.position().down(1))}})
 		keyboard.e().onPressDo({estudiante.usar(game.uniqueCollider(estudiante))})
-		keyboard.c().onPressDo({game.say(estudiante, estudiante.mostrarAtributos())})
+		//keyboard.c().onPressDo({game.say(estudiante, estudiante.mostrarAtributos())})
 	}
 
 	method configurarColisiones() {

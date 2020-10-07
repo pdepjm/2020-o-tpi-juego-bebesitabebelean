@@ -2,6 +2,7 @@ import wollok.game.*
 import estudiante.*
 import nivel.*
 import extras.*
+import atributos.*
 
 program game {
 	game.title("UTN Simulator")
@@ -16,6 +17,17 @@ program game {
 	game.addVisual(cama)
 	game.addVisual(playStation)
 	game.addVisual(ducha)
+	game.addVisual(estudiante.energia())
+	game.addVisual(estudiante.hambre())
+	game.addVisual(estudiante.cordura())
+	game.addVisual(estudiante.estudio())
+	game.addVisual(estudiante.higiene())
+	game.showAttributes(estudiante.energia())
+	game.showAttributes(estudiante.hambre())
+	game.showAttributes(estudiante.cordura())
+	game.showAttributes(estudiante.estudio())
+	game.showAttributes(estudiante.higiene())
 	config.configurarTeclas()
 	game.start()
+	
 }
