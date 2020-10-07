@@ -12,9 +12,10 @@ program game {
 	game.showAttributes(estudiante)
 	game.addVisual(escritorio)
 	game.addVisual(horno)
-	game.addVisual(banio)
+	game.addVisual(trono)
 	game.addVisual(cama)
 	game.addVisual(playStation)
+	game.addVisual(ducha)
 	config.configurarTeclas()
 	game.start()
 }

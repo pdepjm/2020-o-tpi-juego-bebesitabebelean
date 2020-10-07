@@ -3,9 +3,9 @@ import estudiante.*
 import nivel.*
 
 object escritorio{  // donde estudia
-    method position() = game.at(27,8)
+    method position() = game.at(25,9)
     method teUsa(persona){persona.estudiar()}    
-    //method image() = "escritorio.png"
+    method image() = "escritorio.png"
 }
 
 object playStation{
@@ -14,10 +14,15 @@ object playStation{
     //method image() = "playStation.png"
 }
 
-object banio{
-    method position() = game.at(2,2)
+object ducha{
+    method position() = game.at(4,2)
     method teUsa(persona){persona.baniarse()}
-    //method image() = "banio.png"
+    method image() = "Ducha sin agua.png"
+}
+
+object trono{
+    method position() = game.at(2,2)
+    method image() = "Inodoro.png"
 }
 
 object cama{
