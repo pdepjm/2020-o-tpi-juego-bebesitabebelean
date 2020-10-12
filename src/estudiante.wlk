@@ -12,13 +12,13 @@ object estudiante {
 	const property higiene = new Atributo(nivel = 100, position = game.at(8,19))
 	const property estudio = new Atributo(nivel = 0, position = game.at(10, 19))
 
-	method image() = "estudiante.png"
+	//method image() = "estudiante.png"
 	
 
-	method irA(nuevaPosicion){
+	/*method irA(nuevaPosicion){
 
 		position = nuevaPosicion
-	}
+	}*/
 	method usar(objeto){
 		objeto.teUsa(self)
 	}
@@ -33,6 +33,14 @@ object estudiante {
 	method estaHambriento() = hambre.nivel() < 10
 
 	method estaSucio() = higiene.nivel() < 10
+	
+	method mover(nuevaPosicion, unaOrientacion ) { 
+    if( self.puedeMoverAl( unaOrientacion) ) position = nuevaPosicion
+  }
+	
+	method puedeMoverAl( unaOrientacion ) {
+  return game.getObjectsIn( unaOrientacion.posicionEnEsaDireccion() ).all { unObj => unObj.esAtravesable() }
+}
 
 	/*method mostrarAtributos() = 
 								"energia = " + energia.nivel().toString() + "\n" 

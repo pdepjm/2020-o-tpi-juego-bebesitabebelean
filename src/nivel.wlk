@@ -5,16 +5,14 @@ import extras.*
 object config {
 
 	method configurarTeclas() {
-		keyboard.left().onPressDo({if ( estudiante.position().x() != 0) {estudiante.irA(estudiante.position().left(1))}})
-		keyboard.right().onPressDo({if (estudiante.position().x() != 29) {estudiante.irA(estudiante.position().right(1))}})
-		keyboard.up().onPressDo({if (estudiante.position().y() != 19) {estudiante.irA(estudiante.position().up(1))}})
-		keyboard.down().onPressDo({if (estudiante.position().y() != 0) {estudiante.irA(estudiante.position().down(1))}})
+		 keyboard.up().onPressDo { estudiante.mover(estudiante.position().up(1),arriba) }
+  keyboard.down().onPressDo { estudiante.mover(estudiante.position().down(1),abajo) }
+  keyboard.left().onPressDo { estudiante.mover(estudiante.position().left(1),izquierda) }
+  keyboard.right().onPressDo { estudiante.mover(estudiante.position().right(1),derecha) }
 		keyboard.e().onPressDo({estudiante.usar(game.uniqueCollider(estudiante))})
 		//keyboard.c().onPressDo({game.say(estudiante, estudiante.mostrarAtributos())})
 	}
 
-	method configurarColisiones() {
-		game.onCollideDo(estudiante, { algo => algo.teUsa(estudiante)})
-	}
+	
 
 }

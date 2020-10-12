@@ -22,12 +22,15 @@ program game {
 	game.addVisual(estudiante.cordura())
 	game.addVisual(estudiante.estudio())
 	game.addVisual(estudiante.higiene())
+	muro.generarMuros()
 	game.showAttributes(estudiante.energia())
 	game.showAttributes(estudiante.hambre())
 	game.showAttributes(estudiante.cordura())
 	game.showAttributes(estudiante.estudio())
 	game.showAttributes(estudiante.higiene())
 	config.configurarTeclas()
+	
+	
 	game.start()
 	
 }
