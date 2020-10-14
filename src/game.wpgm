@@ -3,32 +3,37 @@ import estudiante.*
 import nivel.*
 import extras.*
 import atributos.*
+import infraestructura.*
+import muebles.*
 
 program game {
 	game.title("UTN Simulator")
 	game.height(20)
 	game.width(30)
 	game.boardGround("Apartment.png")
-	game.addVisual(estudiante)
-	game.showAttributes(estudiante)
 	game.addVisual(escritorio)
 	game.addVisual(horno)
 	game.addVisual(trono)
 	game.addVisual(cama)
 	game.addVisual(playStation)
 	game.addVisual(ducha)
-	game.addVisual(estudiante.energia())
-	game.addVisual(estudiante.hambre())
-	game.addVisual(estudiante.cordura())
-	game.addVisual(estudiante.estudio())
-	game.addVisual(estudiante.higiene())
-	muro.generarMuros()
-	game.showAttributes(estudiante.energia())
-	game.showAttributes(estudiante.hambre())
-	game.showAttributes(estudiante.cordura())
-	game.showAttributes(estudiante.estudio())
-	game.showAttributes(estudiante.higiene())
+	game.addVisual(energia)
+	game.addVisual(hambre)
+	game.addVisual(cordura)
+	game.addVisual(estudio)
+	game.addVisual(higiene)
+	game.addVisual(ganasDeIrAlBanio)
+	game.addVisual(termica)
+	game.addVisual(estudiante)
+	game.showAttributes(estudiante)
+	game.showAttributes(energia)
+	game.showAttributes(hambre)
+	game.showAttributes(cordura)
+	game.showAttributes(estudio)
+	game.showAttributes(higiene)
+	game.showAttributes(ganasDeIrAlBanio)
 	config.configurarTeclas()
+	muro.generarMuros()
 	
 	
 	game.start()
