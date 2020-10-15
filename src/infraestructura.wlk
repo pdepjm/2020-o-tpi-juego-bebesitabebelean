@@ -1,11 +1,15 @@
 import wollok.game.*
 import estudiante.*
+import extras.*
 
 class Pared{
 	
-	const property position
-	method esAtravesable() = false
-
+    const property position
+    
+    method image() = "Muro_invisible.png" 
+	
+    method esAtravesable() = false 
+    
     method reparar(){}
 }
 
@@ -37,49 +41,13 @@ object muro{
         (4 .. 5).forEach({ num => muros.add(new Pared(position = game.at(6, num)))})
         (13 .. 15).forEach({ num => muros.add(new Pared(position = game.at(4, num)))})
         (9 .. 15).forEach({ num => muros.add(new Pared(position = game.at(2, num)))})
+        (2 .. 5).forEach({ num => muros.add(new Pared(position = game.at(num, 4)))})
         muros.forEach{muro => game.addVisual(muro)}
     }
-
-}
-object arriba{
-
-    method posicionEnEsaDireccion() = estudiante.position().up(1)
-}
-
-object abajo{
-
-    method posicionEnEsaDireccion() = estudiante.position().down(1)
-}
-
-object izquierda{
-
-    method posicionEnEsaDireccion() = estudiante.position().left(1)
-}
-
-object derecha{
-
-    method posicionEnEsaDireccion() = estudiante.position().right(1)
 }
 
 
-object termica{
 
-    var property estaPrendida = true
-    const property position = game.at(12,5)
 
-    method esAtravesable() = true
-    
-    method prender(){
-        
-        estaPrendida = true 
-    }
 
-    method cortar(){
 
-        estaPrendida = false
-    }
-
-    method usar() { estaPrendida = not estaPrendida}
-
-    method reparar(){}
-}

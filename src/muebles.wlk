@@ -3,12 +3,10 @@ import estudiante.*
 import nivel.*
 import atributos.*
 import infraestructura.*
+import extras.*
 
+class Mueble inherits Visual{
 
-class Mueble{
-
-    const property position
-    const property image
     const atributoParaAumentar
     const atributoParaDisminuir
     const potenciaParaAumentar
@@ -27,67 +25,9 @@ class Mueble{
         cordura.aumentar(10)
     }
 
-    method esAtravesable() = true
+    override method esAtravesable() = true
 
 }
-
-
-const escritorio = new MuebleDeMadera(  
-                                        position = game.at(27,11), 
-                                        image = "Escritorio3.png", 
-                                        atributoParaAumentar = estudio, 
-                                        potenciaParaAumentar = 1,
-                                        atributoParaDisminuir = [cordura,energia], 
-							            potenciaParaDisminuir = 10
-                                 
-                                    )
-
-const playStation = new MuebleElectrico(    
-                                            position = game.at(21,14), 
-                                            image = "playStation.png", 
-                                            atributoParaAumentar = cordura, 
-                                            potenciaParaAumentar = 5,
-                                            atributoParaDisminuir = [energia], 
-							                potenciaParaDisminuir = 10
-                                        )
-
-const ducha = new Mueble(   
-                            position = game.at(2,2), 
-                            image = "Ducha sin agua.png", 
-                            atributoParaAumentar = higiene, 
-							potenciaParaAumentar = 100,
-                            atributoParaDisminuir = [energia], 
-							potenciaParaDisminuir = 10
-                        )
-							
-const trono = new Mueble(   
-                            position = game.at(4,2), 
-                            image = "Inodoro.png", 
-							atributoParaAumentar = ganasDeIrAlBanio, 
-							potenciaParaAumentar = 10, 
-							atributoParaDisminuir = [higiene], 
-							potenciaParaDisminuir = 100
-                        )
-							
-const cama = new MuebleDeMadera(    
-                                    position = game.at(15,14), 
-                                    image = "cama.png", 
-						            atributoParaAumentar = energia, 
-							        potenciaParaAumentar = 5 ,
-							        atributoParaDisminuir = [hambre], 
-							        potenciaParaDisminuir = 10
-                             
-                                )
-							
-const horno = new MuebleElectrico(   
-                                    position = game.at(3,11),
-                                    image = "horno.png", 
-							        atributoParaAumentar = hambre, 
-							        potenciaParaAumentar = 5, 
-							        atributoParaDisminuir = [energia, higiene], 
-							        potenciaParaDisminuir = 10
-                                )
-
 
 
 /*
@@ -171,3 +111,60 @@ class MuebleDeMadera inherits Mueble{
     method estaDesgastado() = desgaste == 0
 }
 
+
+const escritorio = new MuebleDeMadera(  
+                                        position = game.at(26,11),                      
+                                        image = "PInteraccionDer.png", 
+                                        atributoParaAumentar = estudio, 
+                                        potenciaParaAumentar = 1,
+                                        atributoParaDisminuir = [cordura,energia], 
+							            potenciaParaDisminuir = 10
+                                 
+                                    )
+
+const playStation = new MuebleElectrico(    
+                                            position = game.at(20,14),
+                                            image = "PInteraccionDer.png", 
+                                            atributoParaAumentar = cordura, 
+                                            potenciaParaAumentar = 5,
+                                            atributoParaDisminuir = [energia], 
+							                potenciaParaDisminuir = 10
+                                        )
+
+const ducha = new Mueble(   
+                            position = game.at(2,2), 
+                            image = "PInteraccionArriba.png", 
+                            atributoParaAumentar = higiene, 
+							potenciaParaAumentar = 100,
+                            atributoParaDisminuir = [energia], 
+							potenciaParaDisminuir = 10
+                        )
+							
+const trono = new Mueble(   
+                            position = game.at(4,2), 
+                            image = "PInteraccionArriba.png", 
+							atributoParaAumentar = ganasDeIrAlBanio, 
+							potenciaParaAumentar = 10, 
+							atributoParaDisminuir = [higiene], 
+							potenciaParaDisminuir = 100
+                        )
+							
+const cama = new MuebleDeMadera(    
+                                    position = game.at(15,14), 
+                                    image = "PuntoInteraccion2.png", 
+						            atributoParaAumentar = energia, 
+							        potenciaParaAumentar = 5 ,
+							        atributoParaDisminuir = [hambre], 
+							        potenciaParaDisminuir = 10
+                             
+                                )
+							
+const horno = new MuebleElectrico(   
+                                    position = game.at(3,11),
+                                    image = "PuntoInteraccion2.png", 
+							        atributoParaAumentar = hambre, 
+							        potenciaParaAumentar = 5, 
+							        atributoParaDisminuir = [energia, higiene, ganasDeIrAlBanio], 
+							        potenciaParaDisminuir = 10
+                                )
+                                

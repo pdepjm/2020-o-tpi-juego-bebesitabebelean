@@ -6,7 +6,8 @@ import atributos.*
 import infraestructura.*
 import muebles.*
 
-program game {
+program game{
+
 	game.title("UTN Simulator")
 	game.height(20)
 	game.width(30)
@@ -24,6 +25,11 @@ program game {
 	game.addVisual(higiene)
 	game.addVisual(ganasDeIrAlBanio)
 	game.addVisual(termica)
+	game.addVisual(visualTermica)
+	game.addVisual(visualEscritorio)
+	game.addVisual(visualPlayStation)
+	game.addVisual(visualDucha)
+	game.addVisual(visualTrono)
 	game.addVisual(estudiante)
 	game.showAttributes(estudiante)
 	game.showAttributes(energia)
@@ -36,6 +42,5 @@ program game {
 	muro.generarMuros()
 	
 	
-	game.start()
-	
+	game.start()	
 }
