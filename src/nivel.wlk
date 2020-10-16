@@ -2,58 +2,118 @@ import wollok.game.*
 import estudiante.*
 import extras.*
 import infraestructura.*
+import muebles.*
+import atributos.*
 
 object config {
 
-	method configurarTeclas(){
+	method configuracionEstado0(){ // mental0 y fisico0
 
+		game.clear()
 		keyboard.up().onPressDo({estudiante.mover(estudiante.position().up(1),arriba)})
-  		keyboard.down().onPressDo({ estudiante.mover(estudiante.position().down(1),abajo) })
- 		keyboard.left().onPressDo({ estudiante.mover(estudiante.position().left(1),izquierda) })
-  		keyboard.right().onPressDo({ estudiante.mover(estudiante.position().right(1),derecha) })
+  		keyboard.down().onPressDo({estudiante.mover(estudiante.position().down(1),abajo)})
+ 		keyboard.left().onPressDo({estudiante.mover(estudiante.position().left(1),izquierda)})
+  		keyboard.right().onPressDo({estudiante.mover(estudiante.position().right(1),derecha)})
 		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
 		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
+		self.configurarVisuales()
 	}
 
-	method configurarTeclasLoco1(){
+	method configuracionEstado1(){  // mental0 y fisico1
+		//falta delay
+		game.clear()
+		keyboard.up().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().up(1),arriba)})})
+  		keyboard.down().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().down(1),abajo)})})
+ 		keyboard.left().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().left(1),izquierda)})})
+  		keyboard.right().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().right(1),derecha)})})
+		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
+		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
+		self.configurarVisuales()
+	}
 
+	method configuracionEstado2(){ // mental1 y fisico0
+
+		game.clear()
 		keyboard.down().onPressDo({estudiante.mover(estudiante.position().up(1),arriba)})
-  		keyboard.up().onPressDo({ estudiante.mover(estudiante.position().down(1),abajo) })
- 		keyboard.left().onPressDo({ estudiante.mover(estudiante.position().left(1),izquierda) })
-  		keyboard.right().onPressDo({ estudiante.mover(estudiante.position().right(1),derecha) })
+  		keyboard.up().onPressDo({estudiante.mover(estudiante.position().down(1),abajo)})
+ 		keyboard.left().onPressDo({estudiante.mover(estudiante.position().left(1),izquierda)})
+  		keyboard.right().onPressDo({estudiante.mover(estudiante.position().right(1),derecha)})
 		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
 		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
-	}
-
-	method configurarTeclasLoco2(){
-
-		keyboard.up().onPressDo({estudiante.mover(estudiante.position().up(1),arriba)})
-  		keyboard.down().onPressDo({ estudiante.mover(estudiante.position().down(1),abajo) })
- 		keyboard.right().onPressDo({ estudiante.mover(estudiante.position().left(1),izquierda) })
-  		keyboard.left().onPressDo({ estudiante.mover(estudiante.position().right(1),derecha) })
-		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
-		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
+		self.configurarVisuales()
 	}
 	
-	method configurarTeclasLoco3(){
+	method configuracionEstado3(){ // mental1 y fisico1
+		game.clear()
+		keyboard.down().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().up(1),arriba)})})
+  		keyboard.up().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().down(1),abajo)})})
+ 		keyboard.left().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().left(1),izquierda)})})
+  		keyboard.right().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().right(1),derecha)})})
+		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
+		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
+		self.configurarVisuales()
+	}
 
+	method configuracionEstado4(){ // mental2 y fisico0
+
+		game.clear()
 		keyboard.down().onPressDo({estudiante.mover(estudiante.position().up(1),arriba)})
-  		keyboard.up().onPressDo({ estudiante.mover(estudiante.position().down(1),abajo) })
- 		keyboard.right().onPressDo({ estudiante.mover(estudiante.position().left(1),izquierda) })
-  		keyboard.left().onPressDo({ estudiante.mover(estudiante.position().right(1),derecha) })
+  		keyboard.up().onPressDo({estudiante.mover(estudiante.position().down(1),abajo)})
+ 		keyboard.right().onPressDo({estudiante.mover(estudiante.position().left(1),izquierda)})
+  		keyboard.left().onPressDo({estudiante.mover(estudiante.position().right(1),derecha)})
 		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
 		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
+		self.configurarVisuales()
 	}
 
-	method configurarTeclasCansado(){
-
-		keyboard.up().onPressDo({game.schedule(1000, {}) estudiante.mover(estudiante.position().up(1),arriba)})
-  		keyboard.down().onPressDo({game.schedule(1000, {}) estudiante.mover(estudiante.position().down(1),abajo)})
- 		keyboard.left().onPressDo({game.schedule(1000, {}) estudiante.mover(estudiante.position().left(1),izquierda)})
-  		keyboard.right().onPressDo({game.schedule(1000, {}) estudiante.mover(estudiante.position().right(1),derecha)})
+	method configuracionEstado5(){ // mental2 y fisico1
+		
+		game.clear()
+		keyboard.down().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().up(1),arriba)})})
+  		keyboard.up().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().down(1),abajo)})})
+ 		keyboard.right().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().left(1),izquierda)})})
+  		keyboard.left().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().right(1),derecha)})})
 		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
 		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
+		self.configurarVisuales()
 	}
+
+	method configurarVisuales(){
+
+		game.addVisual(escritorio)
+		game.addVisual(horno)
+		game.addVisual(trono)
+		game.addVisual(cama)
+		game.addVisual(playStation)
+		game.addVisual(ducha)
+		game.addVisual(energia)
+		game.addVisual(hambre)
+		game.addVisual(cordura)
+		game.addVisual(estudio)
+		game.addVisual(higiene)
+		game.addVisual(ganasDeIrAlBanio)
+		game.addVisual(termica)
+		game.addVisual(visualTermica)
+		game.addVisual(visualEscritorio)
+		game.addVisual(visualPlayStation)
+		game.addVisual(visualDucha)
+		game.addVisual(visualTrono)
+		game.addVisual(estudiante)
+		game.addVisual(fisico)
+		game.addVisual(mental)
+		game.showAttributes(estudiante)
+		game.showAttributes(energia)
+		game.showAttributes(hambre)
+		game.showAttributes(cordura)
+		game.showAttributes(estudio)
+		game.showAttributes(higiene)
+		game.showAttributes(ganasDeIrAlBanio)
+		game.showAttributes(fisico)
+		game.showAttributes(mental)
+		muro.generarMuros()
+	}
+
+	
 }	
 
 object arriba{
