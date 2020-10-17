@@ -111,7 +111,7 @@ class MuebleDeMadera inherits Mueble{
         desgaste = 100.min(desgaste + 20)
     }
 
-    method estaDesgastado() = desgaste == 0
+    method estaDesgastado() = desgaste < 50
 }
 
 

@@ -10,22 +10,22 @@ object config {
 	method configuracionEstado0(){ // mental0 y fisico0
 
 		game.clear()
-		keyboard.up().onPressDo({estudiante.mover(estudiante.position().up(1),arriba)})
-  		keyboard.down().onPressDo({estudiante.mover(estudiante.position().down(1),abajo)})
- 		keyboard.left().onPressDo({estudiante.mover(estudiante.position().left(1),izquierda)})
-  		keyboard.right().onPressDo({estudiante.mover(estudiante.position().right(1),derecha)})
+		keyboard.w().onPressDo({estudiante.mover(estudiante.position().up(1),arriba)})
+  		keyboard.s().onPressDo({estudiante.mover(estudiante.position().down(1),abajo)})
+ 		keyboard.a().onPressDo({estudiante.mover(estudiante.position().left(1),izquierda)})
+  		keyboard.d().onPressDo({estudiante.mover(estudiante.position().right(1),derecha)})
 		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
 		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
 		self.configurarVisuales()
 	}
 
 	method configuracionEstado1(){  // mental0 y fisico1
-		//falta delay
+		
 		game.clear()
-		keyboard.up().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().up(1),arriba)})})
-  		keyboard.down().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().down(1),abajo)})})
- 		keyboard.left().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().left(1),izquierda)})})
-  		keyboard.right().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().right(1),derecha)})})
+		keyboard.w().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().up(1),arriba)})})
+  		keyboard.s().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().down(1),abajo)})})
+ 		keyboard.a().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().left(1),izquierda)})})
+  		keyboard.d().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().right(1),derecha)})})
 		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
 		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
 		self.configurarVisuales()
@@ -34,10 +34,10 @@ object config {
 	method configuracionEstado2(){ // mental1 y fisico0
 
 		game.clear()
-		keyboard.down().onPressDo({estudiante.mover(estudiante.position().up(1),arriba)})
-  		keyboard.up().onPressDo({estudiante.mover(estudiante.position().down(1),abajo)})
- 		keyboard.left().onPressDo({estudiante.mover(estudiante.position().left(1),izquierda)})
-  		keyboard.right().onPressDo({estudiante.mover(estudiante.position().right(1),derecha)})
+		keyboard.s().onPressDo({estudiante.mover(estudiante.position().up(1),arriba)})
+  		keyboard.w().onPressDo({estudiante.mover(estudiante.position().down(1),abajo)})
+ 		keyboard.a().onPressDo({estudiante.mover(estudiante.position().left(1),izquierda)})
+  		keyboard.d().onPressDo({estudiante.mover(estudiante.position().right(1),derecha)})
 		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
 		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
 		self.configurarVisuales()
@@ -45,10 +45,10 @@ object config {
 	
 	method configuracionEstado3(){ // mental1 y fisico1
 		game.clear()
-		keyboard.down().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().up(1),arriba)})})
-  		keyboard.up().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().down(1),abajo)})})
- 		keyboard.left().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().left(1),izquierda)})})
-  		keyboard.right().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().right(1),derecha)})})
+		keyboard.s().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().up(1),arriba)})})
+  		keyboard.w().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().down(1),abajo)})})
+ 		keyboard.a().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().left(1),izquierda)})})
+  		keyboard.d().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().right(1),derecha)})})
 		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
 		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
 		self.configurarVisuales()
@@ -57,10 +57,10 @@ object config {
 	method configuracionEstado4(){ // mental2 y fisico0
 
 		game.clear()
-		keyboard.down().onPressDo({estudiante.mover(estudiante.position().up(1),arriba)})
-  		keyboard.up().onPressDo({estudiante.mover(estudiante.position().down(1),abajo)})
- 		keyboard.right().onPressDo({estudiante.mover(estudiante.position().left(1),izquierda)})
-  		keyboard.left().onPressDo({estudiante.mover(estudiante.position().right(1),derecha)})
+		keyboard.s().onPressDo({estudiante.mover(estudiante.position().up(1),arriba)})
+  		keyboard.w().onPressDo({estudiante.mover(estudiante.position().down(1),abajo)})
+ 		keyboard.d().onPressDo({estudiante.mover(estudiante.position().left(1),izquierda)})
+  		keyboard.a().onPressDo({estudiante.mover(estudiante.position().right(1),derecha)})
 		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
 		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
 		self.configurarVisuales()
@@ -69,10 +69,10 @@ object config {
 	method configuracionEstado5(){ // mental2 y fisico1
 		
 		game.clear()
-		keyboard.down().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().up(1),arriba)})})
-  		keyboard.up().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().down(1),abajo)})})
- 		keyboard.right().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().left(1),izquierda)})})
-  		keyboard.left().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().right(1),derecha)})})
+		keyboard.s().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().up(1),arriba)})})
+  		keyboard.w().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().down(1),abajo)})})
+ 		keyboard.d().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().left(1),izquierda)})})
+  		keyboard.a().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().right(1),derecha)})})
 		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
 		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
 		self.configurarVisuales()

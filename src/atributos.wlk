@@ -41,19 +41,29 @@ class TipoAtributo inherits Visual {
     var property nivelTipoAtributo
 
     method evaluarPotencia(){
-        
+
         nivelTipoAtributo.cambiarNivelAtributoSegun(potencia, self)
     }
 
     method aumentarPotenciaEn(cantidad){
+        
         potencia = 100.min(potencia + cantidad)
     }
 
     method disminuirPotenciaEn(cantidad){
+        
         potencia = 0.max(potencia - cantidad)
     }
 }
 
+/*
+const nivelMental0 = new NivelAtributo(limiteInferior = 70, limiteSuperior = 100, nivelSuperior = nivelMental1, nivelInferior = nivelMental0)
+const nivelMental1 = new NivelAtributo(limiteInferior = 40, limiteSuperior = 70, nivelSuperior = nivelMental2 , nivelInferior = nivelMental0)
+const nivelMental2 = new NivelAtributo(limiteInferior = 0, limiteSuperior = 40,nivelSuperior = nivelMental2, nivelInferior = nivelMental1)
+const nivelFisico0 = new NivelAtributo(limiteInferior = 50, limiteSuperior = 100, nivelSuperior = nivelFisico1, nivelInferior = nivelFisico0)
+const nivelFisico1 = new NivelAtributo(limiteInferior = 0, limiteSuperior = 50, nivelSuperior = nivelFisico1, nivelInferior = nivelFisico0)
+const nivelNeutro = new NivelAtributo(limiteInferior = 0, limiteSuperior = 100, nivelSuperior = nivelNeutro, nivelInferior = nivelNeutro)
+*/
 
 const fisico = new TipoAtributo(position = game.at(14,19), image = "pepito.png", nivelTipoAtributo = nivelFisico0)
 const mental = new TipoAtributo(position = game.at(16,19), image = "pepito2.png", nivelTipoAtributo = nivelMental0)
@@ -88,6 +98,34 @@ object mental{
     }
 }
 */
+
+
+class NivelAtributo{
+    
+    const limiteInferior 
+    const limiteSuperior
+    const nivelSuperior
+    const nivelInferior
+    
+    method cambiarNivelAtributoSegun(potencia, tipo){
+        
+        if(potencia < limiteInferior){
+
+           tipo.nivelTipoAtributo(nivelSuperior)
+       }
+       else if(potencia >= limiteSuperior){
+
+           tipo.nivelTipoAtributo(nivelInferior)
+       }
+    }
+}
+
+
+
+
+
+
+
 
 object nivelMental0{
 
@@ -126,8 +164,8 @@ object nivelMental2{
 }
 
 
-/*
 
+/*
 object nivelMental3{
 
     method aplicarEfectos(){config.configuracionLoco3()}
@@ -159,6 +197,8 @@ object nivelFisico1{
         if(potencia >= 50) tipo.nivelTipoAtributo(nivelFisico0)
     }
 }
+
+
 
 
 const  energia = new Atributo(position = game.at(2,19), image = "Energia_editado.png", tipoAtributo = fisico)

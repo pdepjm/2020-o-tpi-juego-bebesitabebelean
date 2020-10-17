@@ -1,6 +1,216 @@
+import estudiante.*
+import atributos.*
+import muebles.*
+import extras.*
 
-test "testX" {
+describe "Tests del estudiante"{
 
-	assert.that(true)
+	test "El estudiante se mantiene en estado0"{
 
+		mental.potencia(70)
+		fisico.potencia(50)
+		
+		mental.evaluarPotencia()
+		fisico.evaluarPotencia()
+		estudiante.evaluarEstado()
+
+		assert.equals(estudiante.estado(), estado0)
+	}
+	
+	test "El estudiante cambia a estado1"{
+
+		mental.potencia(70)
+		fisico.potencia(49)
+		
+		mental.evaluarPotencia()
+		fisico.evaluarPotencia()
+		estudiante.evaluarEstado()
+
+		assert.equals(estudiante.estado(), estado1)
+	}
+
+	test "El estudiante cambia a estado2"{
+
+		mental.potencia(69)
+		fisico.potencia(50)
+		
+		mental.evaluarPotencia()
+		fisico.evaluarPotencia()
+		estudiante.evaluarEstado()
+
+		assert.equals(estudiante.estado(), estado2)
+	}
+
+	test "El estudiante cambia a estado3"{
+
+		mental.potencia(69)
+		fisico.potencia(49)		
+		
+		mental.evaluarPotencia()
+		fisico.evaluarPotencia()
+		estudiante.evaluarEstado()
+	
+		assert.equals(estudiante.estado(), estado3)
+	}
+
+	test "El estudiante cambia a estado4"{
+
+		mental.potencia(39)
+		fisico.potencia(50)
+
+		
+		mental.evaluarPotencia()
+		mental.evaluarPotencia()
+		fisico.evaluarPotencia()
+		estudiante.evaluarEstado()
+		
+		assert.equals(estudiante.estado(), estado4)
+	}
+
+	test "El estudiante cambia a estado5"{
+
+		mental.potencia(39)
+		fisico.potencia(49)
+
+		mental.evaluarPotencia()
+		mental.evaluarPotencia()
+		fisico.evaluarPotencia()
+		estudiante.evaluarEstado()
+
+		assert.equals(estudiante.estado(), estado5)
+	}
+}
+
+describe "Tests de Muebles electricos"{
+
+	test "Quemar un mueble electrico"{
+		
+		horno.quemar()
+	
+		assert.that(horno.estaQuemado())
+	}
+
+	test "Arreglar un mueble quemado con la termica prendida"{
+
+		horno.quemar()
+		horno.reparar()
+
+		assert.that(horno.estaQuemado())
+	}
+
+	test "Arreglar un mueble quemado con la termica apagada"{
+
+		horno.quemar()
+
+		termica.usar()
+		horno.reparar()
+		termica.usar()
+	
+		assert.notThat(horno.estaQuemado())
+	}
+
+	test "Usar mueble electrico que se encuentra quemado"{
+
+		horno.quemar()
+		horno.usar()
+
+		assert.equals(hambre.nivelAtributo(), 100)
+		assert.equals(energia.nivelAtributo(), 100)
+		assert.equals(ganasDeIrAlBanio.nivelAtributo(), 100)
+		assert.equals(higiene.nivelAtributo(), 100)
+	}
+	
+	test "Usar mueble electrico con termica apagada"{
+
+		termica.usar()
+		horno.usar()
+
+		assert.equals(hambre.nivelAtributo(), 100)
+		assert.equals(energia.nivelAtributo(), 100)
+		assert.equals(ganasDeIrAlBanio.nivelAtributo(), 100)
+		assert.equals(higiene.nivelAtributo(), 100)
+	}
+
+	test "Usar mueble electrico en condiciones"{
+
+		hambre.nivelAtributo(90)
+		
+		const hambreInicial = hambre.nivelAtributo()
+		const energiaInicial = energia.nivelAtributo()
+		const ganasDeIrAlBanioInicial = ganasDeIrAlBanio.nivelAtributo()
+		const higieneInicial = higiene.nivelAtributo()
+
+		horno.usar()
+
+		assert.equals(hambre.nivelAtributo(), hambreInicial + 5)
+		assert.equals(energia.nivelAtributo(), energiaInicial - 10)
+		assert.equals(ganasDeIrAlBanio.nivelAtributo(), ganasDeIrAlBanioInicial - 10)
+		assert.equals(higiene.nivelAtributo(), higieneInicial - 10)
+	}
+}
+
+describe "Muebles de madera"{
+
+	test "Mueble que esta desgastado"{
+		 
+		cama.desgaste(49)
+		
+		assert.that(cama.estaDesgastado())
+	}
+
+	test "Mueble que no esta desgastado"{
+
+		cama.desgaste(50)
+		
+		assert.notThat(cama.estaDesgastado())
+	}
+
+	test "Usar un mueble que no esta desgastado"{
+		
+		const corduraInicial = cordura.nivelAtributo()
+		const energiaInicial = energia.nivelAtributo()
+		const estudioInicial = estudio.nivelAtributo()
+
+		escritorio.usar()
+
+		assert.equals(cordura.nivelAtributo(), corduraInicial - 10)
+		assert.equals(energia.nivelAtributo(), energiaInicial - 10)
+		assert.equals(estudio.nivelAtributo(), estudioInicial + 1)
+	}
+
+	test "Usar un mueble que esta desgastado"{
+		
+		const corduraInicial = cordura.nivelAtributo()
+		const energiaInicial = energia.nivelAtributo()
+		const estudioInicial = estudio.nivelAtributo()
+	
+		escritorio.desgaste(49)
+		escritorio.usar()
+	
+		assert.equals(cordura.nivelAtributo(), corduraInicial - 10)
+		assert.equals(energia.nivelAtributo(), energiaInicial - 10)
+		assert.equals(estudio.nivelAtributo(), estudioInicial + 0.5)
+	}
+	
+	test "Reparar mueble desgastado"{
+
+		cama.desgaste(49)
+		cama.reparar()
+		assert.notThat(cama.estaDesgastado())
+	}
+
+	test "Cuando se repara un mueble se ven afectados ciertos atributos"{
+
+		cordura.nivelAtributo(85)
+
+		const corduraInicial = cordura.nivelAtributo()
+		const energiaInicial = energia.nivelAtributo()
+		const higieneInicial = higiene.nivelAtributo()
+		
+		cama.reparar()
+
+		assert.equals(cordura.nivelAtributo(), corduraInicial + 10)
+		assert.equals(energia.nivelAtributo(), energiaInicial - 5)
+		assert.equals(higiene.nivelAtributo(), higieneInicial - 5)
+	}
 }

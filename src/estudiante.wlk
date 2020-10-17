@@ -5,15 +5,15 @@ import atributos.*
 
 object estudiante{
 	
-	var estado = estado0
+	var property estado = estado0
 	var property position = game.center()
 	
-	method mover(nuevaPosicion, unaOrientacion ){
+	method mover(nuevaPosicion, unaOrientacion){
 
     	if(self.puedeMoverAl(unaOrientacion)) position = nuevaPosicion
   	}
 	
-	method puedeMoverAl( unaOrientacion ){
+	method puedeMoverAl(unaOrientacion){
 
   		return game.getObjectsIn(unaOrientacion.posicionEnEsaDireccion()).all{unObj => unObj.esAtravesable()}
 	}

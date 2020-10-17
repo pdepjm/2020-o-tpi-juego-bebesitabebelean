@@ -24,17 +24,6 @@ object termica{
     const property image = "PInteraccionArriba.png" 
 
     method esAtravesable() = true
-    
-    method prender(){
-        
-        estaPrendida = true
-         
-    }
-
-    method cortar(){
-
-        estaPrendida = false
-    }
 
     method usar(){
         
