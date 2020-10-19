@@ -20,25 +20,24 @@ object estudiante{
 
 	method evaluarEstado(){
 
-		if(mental.nivelTipoAtributo() == nivelMental0 and fisico.nivelTipoAtributo() == nivelFisico0){
+		if(mental.esNivel0() and fisico.esNivel0()){
 			estado = estado0
 		}
-		else if(mental.nivelTipoAtributo() == nivelMental0 and fisico.nivelTipoAtributo() == nivelFisico1){
+		else if(mental.esNivel0() and fisico.esNivel1()){
 			estado = estado1
 		}
-		else if(mental.nivelTipoAtributo() == nivelMental1 and fisico.nivelTipoAtributo() == nivelFisico0){
+		else if(mental.esNivel1() and fisico.esNivel0()){
 			estado = estado2
 		}
-		else if(mental.nivelTipoAtributo() == nivelMental1 and fisico.nivelTipoAtributo() == nivelFisico1){
+		else if(mental.esNivel1() and fisico.esNivel1()){
 			estado = estado3
 		}
-		else if(mental.nivelTipoAtributo() == nivelMental2 and fisico.nivelTipoAtributo() == nivelFisico0){
+		else if(mental.esNivel2() and fisico.esNivel0()){
 			estado = estado4
 		}
-		else if (mental.nivelTipoAtributo() == nivelMental2 and fisico.nivelTipoAtributo() == nivelFisico1){
+		else if (mental.esNivel2() and fisico.esNivel1()){
 			estado = estado5
 		}
-		
 	}
 
 	method modificarComportamiento(){
