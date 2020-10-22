@@ -41,6 +41,12 @@ class TipoFisico inherits TipoAtributo{
     
     method esNivel0() = potencia <= 100 and potencia >= 50
     method esNivel1() = not self.esNivel0()
+    method afectarMovimiento(){
+    	
+    	if(potencia < 50)
+    		config.configuracionEstado1()
+    	else config.configuracionEstado0()
+    }
 }
 
 class TipoMental inherits TipoAtributo{

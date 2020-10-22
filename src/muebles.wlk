@@ -15,6 +15,7 @@ class Mueble inherits Visual{
     method usar(){
         
         atributoParaAumentar.aumentar(potenciaParaAumentar)
+        //atributoParaAumentar.aumentar(self.potenciaAumento())
         atributoParaDisminuir.forEach({atributo => atributo.disminuir(potenciaParaDisminuir)})
         estudiante.evaluarEstado()
         estudiante.modificarComportamiento()
