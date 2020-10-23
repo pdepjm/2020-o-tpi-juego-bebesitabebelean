@@ -12,7 +12,7 @@ object estudiante{
 
     	if(self.puedeMoverAl(unaOrientacion)) {
     		
-    		atributos.forEach({atributo => atributo.afectarMovimiento()})
+//    		atributos.forEach({atributo => atributo.afectarMovimiento()})
     		position = nuevaPosicion
     	}
     	
