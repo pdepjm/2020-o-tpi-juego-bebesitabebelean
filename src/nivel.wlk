@@ -117,21 +117,21 @@ object config {
 }	
 
 object arriba{
-
+	method imagenDelJugador() = "PInteraccionArriba.png"
     method posicionEnEsaDireccion() = estudiante.position().up(1)
 }
 
 object abajo{
-
+	method imagenDelJugador() = "PInteraccionAbajo.png"
     method posicionEnEsaDireccion() = estudiante.position().down(1)
 }
 
 object izquierda{
-
+	method imagenDelJugador() = "PuntoInteraccion2.png"
     method posicionEnEsaDireccion() = estudiante.position().left(1)
 }
 
 object derecha{
-
+	method imagenDelJugador() = "PInteraccionDer.png"
     method posicionEnEsaDireccion() = estudiante.position().right(1)
 }

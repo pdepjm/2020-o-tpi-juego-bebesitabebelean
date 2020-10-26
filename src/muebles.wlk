@@ -17,7 +17,7 @@ class Mueble inherits Visual{
         atributoParaAumentar.aumentar(potenciaParaAumentar)
         //atributoParaAumentar.aumentar(self.potenciaAumento())
         atributoParaDisminuir.forEach({atributo => atributo.disminuir(potenciaParaDisminuir)})
-        estudiante.evaluarEstado()
+       // estudiante.evaluarEstado()
         estudiante.modificarComportamiento()
     }
 
@@ -102,7 +102,7 @@ class MuebleDeMadera inherits Mueble{
 
         atributoParaDisminuir.forEach({atributo => atributo.disminuir(potenciaParaDisminuir)})
     	desgaste = 0.max(desgaste - 5) 
-        estudiante.evaluarEstado()
+       // estudiante.evaluarEstado()
         estudiante.modificarComportamiento()
     }
 
