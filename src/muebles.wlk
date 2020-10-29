@@ -15,10 +15,9 @@ class Mueble inherits Visual{
     method usar(){
         
         atributoParaAumentar.aumentar(potenciaParaAumentar)
-        //atributoParaAumentar.aumentar(self.potenciaAumento())
         atributoParaDisminuir.forEach({atributo => atributo.disminuir(potenciaParaDisminuir)})
-       // estudiante.evaluarEstado()
-        estudiante.modificarComportamiento()
+        fisico.afectarMovimiento()
+        mental.afectarMovimiento()
     }
 
     method reparar(){
@@ -32,48 +31,24 @@ class Mueble inherits Visual{
 
 }
 
-
-/*
-Los muebles pueden ser 
- - usados
- - arreglados
-
-Hay dos variedades de muebles: eléctricos o de madera
-- los muebles eléctricos 
-            - Cuando los usas: si no tienen luz no funcionan, hay un 10% de chances que se quemen(cuando se queman tampoco hacen nada por vos)
-            - Solamente se pueden arreglar cuando están quemados
-            - Cuando los arreglas dejan de estar quemados
-- los muebles de madera:
-             - Tienen un nivel de desgaste que va de 0 a 100 (no puede tener mas que de 0 a 100)
-            - cada vez que lo usas se desgastan en 5, ayudan a la persona dependiendo de su nivel de desgaste (esto no lo hablamos, pero fíjense 
-            el detalle de como afecta al efecto si es un multiplicador o como lo quieren modelar). Dijimos que cuando se desgastan del todo te dan la mitad.
-            - se pueden arreglar si estan algo desgastados
-            - cuando los arreglas les reparas 20 de desgaste
-- Todos los muebles cuando los arreglan, quien lo haya arreglado mejora su vivienda (esto significa que pierde energía y se ensucia pero aumenta 
-su cordura)
-
-(aca nos faltó pensar otro tipo de "mueble" que englobe a la ducha por ejemplo, pero lo podemos hacer bien básico y decir que la ducha es un 
-mueble Básico que cuando las usas mejoran en 10 un atributo  y no se desgasta, por lo cual nunca se pueden arreglar)
-
-*/
-
 class MuebleElectrico inherits Mueble{
 
-	var property estaQuemado = false
+	var property estado = util
+	 
+    method quemar(){ estado = quemado }
 	
-	method quemar(){estaQuemado = true} 
-
-	override method reparar(){
+    override method reparar(){
         
         if(not termica.estaPrendida()){
+            
             super()
-            estaQuemado = false
+            estado = util
         }
     }
 
   	override method usar(){
 	
-	    if(not self.estaQuemado() and termica.estaPrendida()){
+	    if(estado.estaEnCondiciones()){
             
 			super()
 	        self.puedeQuemarse()	
@@ -85,8 +60,17 @@ class MuebleElectrico inherits Mueble{
 	
 	    if(1.randomUpTo(100) <= 10)
 		    self.quemar()
-	}
-	
+	}	
+}
+
+object util{
+
+    method estaEnCondiciones() = termica.estaPrendida()
+}
+
+object quemado{
+    
+    method estaEnCondiciones() = false
 }
 
 class MuebleDeMadera inherits Mueble{
@@ -103,7 +87,8 @@ class MuebleDeMadera inherits Mueble{
         atributoParaDisminuir.forEach({atributo => atributo.disminuir(potenciaParaDisminuir)})
     	desgaste = 0.max(desgaste - 5) 
        // estudiante.evaluarEstado()
-        estudiante.modificarComportamiento()
+        fisico.afectarMovimiento()
+        mental.afectarMovimiento()
     }
 
 	override method reparar(){

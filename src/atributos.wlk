@@ -39,13 +39,12 @@ class TipoAtributo inherits Visual{
 
 class TipoFisico inherits TipoAtributo{
     
-    method esNivel0() = potencia <= 100 and potencia >= 50
-    method esNivel1() = not self.esNivel0()
     method afectarMovimiento(){
     	
     	if(potencia < 50)
-    		config.configuracionEstado1()
-    	else config.configuracionEstado0()
+    		config.agregarLag()
+    	else 
+            config.sinLag()
     }
 }
 
@@ -53,7 +52,16 @@ class TipoMental inherits TipoAtributo{
     
     method esNivel0() = potencia <= 100 and potencia >= 70
     method esNivel1() = potencia <= 70 and potencia >= 40
-    method esNivel2() = not (self.esNivel0() or self.esNivel1())
+
+    method afectarMovimiento(){
+        
+        if(self.esNivel0()) 
+            config.caminaNormal()
+        else if (self.esNivel1()) 
+            config.semiInvertir()
+        else 
+            config.invertirTotalmente()
+    }
 }
 
 

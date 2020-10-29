@@ -7,72 +7,68 @@ import atributos.*
 
 object config {
 
-	method configuracionEstado0(){ // mental0 y fisico0
+	var tieneLag = false
+	var direccion = direccionNormal
 
-		game.clear()
-		keyboard.w().onPressDo({estudiante.mover(estudiante.position().up(1),arriba)})
-  		keyboard.s().onPressDo({estudiante.mover(estudiante.position().down(1),abajo)})
- 		keyboard.a().onPressDo({estudiante.mover(estudiante.position().left(1),izquierda)})
-  		keyboard.d().onPressDo({estudiante.mover(estudiante.position().right(1),derecha)})
-		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
-		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
-		self.configurarVisuales()
-	}
-
-	method configuracionEstado1(){  // mental0 y fisico1
+	method agregarLag(){
 		
-		game.clear()
-		keyboard.w().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().up(1),arriba)})})
-  		keyboard.s().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().down(1),abajo)})})
- 		keyboard.a().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().left(1),izquierda)})})
-  		keyboard.d().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().right(1),derecha)})})
-		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
-		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
-		self.configurarVisuales()
+		tieneLag = true
+		self.impactar()
 	}
 
-	method configuracionEstado2(){ // mental1 y fisico0
-
-		game.clear()
-		keyboard.s().onPressDo({estudiante.mover(estudiante.position().up(1),arriba)})
-  		keyboard.w().onPressDo({estudiante.mover(estudiante.position().down(1),abajo)})
- 		keyboard.a().onPressDo({estudiante.mover(estudiante.position().left(1),izquierda)})
-  		keyboard.d().onPressDo({estudiante.mover(estudiante.position().right(1),derecha)})
-		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
-		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
-		self.configurarVisuales()
-	}
-	
-	method configuracionEstado3(){ // mental1 y fisico1
-		game.clear()
-		keyboard.s().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().up(1),arriba)})})
-  		keyboard.w().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().down(1),abajo)})})
- 		keyboard.a().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().left(1),izquierda)})})
-  		keyboard.d().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().right(1),derecha)})})
-		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
-		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
-		self.configurarVisuales()
-	}
-
-	method configuracionEstado4(){ // mental2 y fisico0
-
-		game.clear()
-		keyboard.s().onPressDo({estudiante.mover(estudiante.position().up(1),arriba)})
-  		keyboard.w().onPressDo({estudiante.mover(estudiante.position().down(1),abajo)})
- 		keyboard.d().onPressDo({estudiante.mover(estudiante.position().left(1),izquierda)})
-  		keyboard.a().onPressDo({estudiante.mover(estudiante.position().right(1),derecha)})
-		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
-		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
-		self.configurarVisuales()
-	}
-
-	method configuracionEstado5(){ // mental2 y fisico1
+	method sinLag(){
 		
+		tieneLag = false
+		self.impactar()
+	}
+
+	method invertirTotalmente(){
+
+		direccion = direccionTotalmeteInvertida
+		self.impactar()
+	}
+
+	method semiInvertir(){
+
+		direccion = direccionSemiInvertida
+		self.impactar()
+	}
+
+	method caminaNormal(){
+		direccion = direccionNormal
+		self.impactar()
+	}
+
+	method resetear(){
+		
+		tieneLag = false
+		direccion = direccionNormal
+		self.impactar()
+	}
+
+	method impactar(){
+		
+		const movimientoW = {estudiante.mover(direccion.moverArriba(), direccion.arriba())}
+		const movimientoS = {estudiante.mover(direccion.moverAbajo(), direccion.abajo())}
+		const movimientoA = {estudiante.mover(direccion.moverIzquierda(), direccion.izquierda())}
+		const movimientoD = {estudiante.mover(direccion.moverDerecha(), direccion.derecha())}
+
 		game.clear()
-		keyboard.s().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().up(1),arriba)})})
-  		keyboard.w().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().down(1),abajo)})})
- 		keyboard.d().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().left(1),izquierda)})})
-  		keyboard.a().onPressDo({game.schedule(1000, {estudiante.mover(estudiante.position().right(1),derecha)})})
+		if(tieneLag){
+
+			keyboard.s().onPressDo({game.schedule(1000, movimientoS)})
+  			keyboard.w().onPressDo({game.schedule(1000, movimientoW)})
+ 			keyboard.a().onPressDo({game.schedule(1000, movimientoA)})
+  			keyboard.d().onPressDo({game.schedule(1000, movimientoD)})
+		}
+		else{
+
+			keyboard.s().onPressDo(movimientoS)
+  			keyboard.w().onPressDo(movimientoW)
+ 			keyboard.a().onPressDo(movimientoA)
+  			keyboard.d().onPressDo(movimientoD)
+		}
+
 		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
 		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
 		self.configurarVisuales()
@@ -112,8 +108,43 @@ object config {
 		game.showAttributes(mental)
 		muro.generarMuros()
 	}
+}
 
+
+object direccionNormal {
 	
+	method arriba() = arriba
+	method moverArriba() = estudiante.position().up(1)
+	method abajo() = abajo
+	method moverAbajo() = estudiante.position().down(1) 
+	method izquierda() = izquierda
+	method moverIzquierda() = estudiante.position().left(1) 
+	method derecha() = derecha
+	method moverDerecha() = estudiante.position().right(1) 
+}
+
+object direccionSemiInvertida {
+
+	method arriba() = arriba
+	method moverArriba() = estudiante.position().up(1) 
+	method abajo() = abajo
+	method moverAbajo() = estudiante.position().down(1) 
+	method izquierda() = derecha
+	method moverIzquierda() = estudiante.position().right(1) 
+	method derecha() = izquierda
+	method moverDerecha() = estudiante.position().left(1) 
+}
+
+object direccionTotalmeteInvertida {
+	
+	method arriba() = abajo
+	method moverArriba() = estudiante.position().down(1) 
+	method abajo() = arriba
+	method moverAbajo() = estudiante.position().up(1) 
+	method izquierda() = derecha
+	method moverIzquierda() = estudiante.position().right(1) 
+	method derecha() = izquierda
+	method moverDerecha() = estudiante.position().left(1) 
 }	
 
 object arriba{
