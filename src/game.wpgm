@@ -10,6 +10,7 @@ program game{
 	game.boardGround("Apartment.png")
 	config.impactar()
 	
+	
 	game.start()	
 }
 

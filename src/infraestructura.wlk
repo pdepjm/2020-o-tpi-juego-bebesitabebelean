@@ -3,14 +3,12 @@ import estudiante.*
 import extras.*
 
 class Pared{
-	
-    const property position
+
+    var property position
     
-    method image() = "Muro_invisible.png" 
-	
-    method esAtravesable() = false 
-    
+    method image() = "Muro_invisible.png"	 
     method reparar(){}
+    method esAtravesable() = false
 }
 
 
@@ -47,7 +45,26 @@ object muro{
 }
 
 
+class Puerta{
 
+    const puertaAbierta
+    const puertaCerrada = "Inodoro.png"
+    const property position
+    var property image
+    
+    method esAtravesable() = true
+    method abrir(){
+        
+        image = puertaAbierta
+        game.schedule(1000, {self.cerrar()})
+    }
+    method cerrar(){image = puertaCerrada}
 
+}
 
-
+const puertaHabitacionIzquierda = new Puerta(puertaAbierta = "Objeto_puerta_izquierda_abierta.png", image = "Inodoro.png", position = game.at(5,2))
+const puertaHabitacionDerecha = new Puerta(puertaAbierta = "Objeto_puerta_derecha_abierta.png", image = "Inodoro.png", position = game.at(6,2))
+const puertaSalonIzquierda = new Puerta(puertaAbierta = "Objeto_puerta_izquierda_abierta.png", image = "Inodoro.png", position = game.at(7,2))
+const puertaSalonDerecha = new Puerta(puertaAbierta = "Objeto_puerta_derecha_abierta.png", image = "Inodoro.png", position = game.at(8,2))
+const puertaDeBanioArriba = new Puerta(puertaAbierta = "Objeto_puerta_banio_abierto.png", image = "Inodoro.png", position = game.at(9,2))
+const puertaDeBanioAbajo = new Puerta(puertaAbierta = "Objeto_puerta_banio_abierto.png", image = "Inodoro.png", position = game.at(10,2))

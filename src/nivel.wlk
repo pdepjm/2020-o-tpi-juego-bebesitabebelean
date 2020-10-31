@@ -71,7 +71,9 @@ object config {
 
 		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
 		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
+		
 		self.configurarVisuales()
+		self.colisiones()
 	}
 
 	method configurarVisuales(){
@@ -97,6 +99,39 @@ object config {
 		game.addVisual(estudiante)
 		game.addVisual(fisico)
 		game.addVisual(mental)
+		game.addVisual(puertaHabitacionIzquierda)
+		game.addVisual(puertaHabitacionDerecha)
+	/*	game.addVisual(puertaSalonIzquierda)
+		game.addVisual(puertaSalonDerecha)
+		game.addVisual(puertaDeBanioArriba)
+		game.addVisual(puertaDeBanioAbajo)
+		game.addVisual(puertaSalonDerecha)
+		game.addVisual(puertaDeBanioArriba)
+		game.addVisual(puertaDeBanioAbajo)
+		game.addVisual(puertaSalonDerecha)
+		game.addVisual(puertaDeBanioArriba)
+		game.addVisual(puertaDeBanioAbajo)
+		game.addVisual(puertaSalonDerecha)
+		game.addVisual(puertaDeBanioArriba)
+		game.addVisual(puertaDeBanioAbajo)
+		game.addVisual(puertaSalonDerecha)
+		game.addVisual(puertaDeBanioArriba)
+		game.addVisual(puertaDeBanioAbajo)
+		game.addVisual(puertaSalonDerecha)
+		game.addVisual(puertaDeBanioArriba)
+		game.addVisual(puertaDeBanioAbajo)
+		game.addVisual(puertaSalonDerecha)
+		game.addVisual(puertaDeBanioArriba)
+		game.addVisual(puertaDeBanioAbajo)*/
+		game.showAttributes(estudiante)
+		game.showAttributes(energia)
+		game.showAttributes(hambre)
+		game.showAttributes(cordura)
+		game.showAttributes(estudio)
+		game.showAttributes(higiene)
+		game.showAttributes(ganasDeIrAlBanio)
+		game.showAttributes(fisico)
+		game.showAttributes(mental)
 		game.showAttributes(estudiante)
 		game.showAttributes(energia)
 		game.showAttributes(hambre)
@@ -107,6 +142,11 @@ object config {
 		game.showAttributes(fisico)
 		game.showAttributes(mental)
 		muro.generarMuros()
+	}
+
+	method colisiones(){
+		
+		game.whenCollideDo(estudiante,{elemento => elemento.abrir()})
 	}
 }
 

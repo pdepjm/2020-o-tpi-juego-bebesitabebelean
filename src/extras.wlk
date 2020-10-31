@@ -8,6 +8,7 @@ class Visual{
     var property position
     var property image
     method esAtravesable() = false
+    method abrir(){}
 }
 
 const visualTermica = new Visual(position = game.at(12,7), image = "Termica_Prendida.png")
@@ -22,6 +23,8 @@ object termica{
     var property estaPrendida = true
     const property position = game.at(12,5)
     const property image = "PInteraccionArriba.png" 
+    
+    method abrir(){}
 
     method esAtravesable() = true
 
