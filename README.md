@@ -43,6 +43,7 @@ hay que mantenerlo vivo para que pueda estudiar, apruebe el parcial y
 promocione.
 
 **Obstáculos**: 
+
 Dentro de la casa de Paquito vamos a encontrar muebles de
 madera (como escritorio, cama) o muebles que son eléctricos(como la play
 y el horno). 
@@ -98,12 +99,3 @@ potencia física pasa a nivel 1).
 
 Cabe aclarar que los niveles mentales y físicos pueden estar combinados,
 esto generará que existan distintos estados posibles para Paquito.
-
-Posibles finales:
-
-1.  Paquito muere brutalmente electrocutado intentando reparar algún
-    mueble eléctrico que se haya quemado, sin antes cortar la luz
-    (existe un 50% de probabilidad de morir si esto ocurre).
-
-2.  Paquito muere cuando la potencia física llega a 0.
-3.  El tiempo termina
