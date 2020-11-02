@@ -7,14 +7,13 @@ pidiendo ayuda para que lo guíes y pueda sobrevivir a esta pandemia sin
 tirarse del balcón... pero MÁS aún para que lo ayudes a prepararse para
 el parcial de objetos que tiene que enfrentarse!! 😫
 
--   Paquito ya no tiene control de su cuerpo por lo que vas a tener que
-    guiarlo, esto lo podes hacer de la siguiente forma:
---   **Teclas “w, a, s, d”**: Se utilizan para mover a Paquito por las
+Paquito ya no tiene control de su cuerpo por lo que vas a tener que guiarlo, esto lo podes hacer de la siguiente forma:
+-   **Teclas “w, a, s, d”**: Se utilizan para mover a Paquito por las
     diferentes partes de su casa.
---   **Tecla “e”**: Es la tecla con la que Paquito va a interactuar con los
+-   **Tecla “e”**: Es la tecla con la que Paquito va a interactuar con los
     distintos objetos que se encuentren en la casa. Como por ejemplo
     cuando Paquito quiere dormir en la cama.
---   **Tecla “r”**: Hay veces que ciertos objetos se rompen o desgastan a lo
+-   **Tecla “r”**: Hay veces que ciertos objetos se rompen o desgastan a lo
     largo del uso, por lo tanto se usa para reparar esos objetos. (Será
     detallado luego)
 
