@@ -23,12 +23,18 @@ Paradigmas por lo que aprobar el parcial con una buena nota es lo que
 realmente nos importa. Por lo que para esto hay que tener en cuenta que
 cuanto más estudiemos mejor ya que obtendremos una mayor nota a la hora
 de ir a rendir. Para estudiar basta con ir al escritorio y estudiar pero
-CUIDADO porque Paquito tiene varios atributos: \* **Estudio** (el principal,
-el cual aumenta estudiando en el escritorio) \* **Energía** (que se renueva
-durmiendo) // o sentándose en el trono \* **Hambre** (que se renueva
-cocinandose algo para comer en el horno) \* **Cordura** (que se renueva
-despejandose al jugar a la play por un rato) \* **Higiene** (que se renueva
-bañándose en la ducha) \* **Ganas de ir al baño** (que se eliminan yendo al
+CUIDADO porque Paquito tiene varios atributos:
+- **Estudio** (el principal,
+el cual aumenta estudiando en el escritorio) 
+- **Energía** (que se renueva
+durmiendo) // o sentándose en el trono 
+- **Hambre** (que se renueva
+cocinandose algo para comer en el horno) 
+- **Cordura** (que se renueva
+despejandose al jugar a la play por un rato) 
+- **Higiene** (que se renueva
+bañándose en la ducha) 
+- **Ganas de ir al baño** (que se eliminan yendo al
 trono)
 
 Hay que tener en cuenta que Paquito **NO** puede estudiar todo el tiempo,
