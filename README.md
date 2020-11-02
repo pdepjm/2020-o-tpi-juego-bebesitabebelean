@@ -67,7 +67,7 @@ comportamiento (estado) del personaje a medida que cambian.
 Subir o dejar que bajen los atributos afectará de forma positiva o
 negativa a los niveles básicos, respectivamente.
 
-*Mental*: \* Si la potencia mental se encuentra entre 70 y 100, Paquito
+~Mental~: \* Si la potencia mental se encuentra entre 70 y 100, Paquito
 experimentará un mareo de nivel 0 pero esto no será suficiente para
 afectar su comportamiento por lo que Paquito se moverá normalmente. \*
 Si la potencia mental se encuentra entre 40 y 70, Paquito va a empezar a
