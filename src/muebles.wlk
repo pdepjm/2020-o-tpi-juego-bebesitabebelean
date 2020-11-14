@@ -98,12 +98,21 @@ class MuebleDeMadera inherits Mueble{
     method estaDesgastado() = desgaste < 50
 }
 
+class MuebleDeBanio inherits Mueble{
+
+    override method producirEfecto(){
+
+        atributoParaAumentar.aumentar(potenciaParaAumentar)
+    }
+
+    override method reparar(){}
+}
 
 const escritorio = new MuebleDeMadera(  
                                         position = game.at(26,11),                      
                                         image = "PInteraccionDer.png", 
                                         atributoParaAumentar = estudio, 
-                                        potenciaParaAumentar = 1,
+                                        potenciaParaAumentar = 2,
                                         atributoParaDisminuir = [cordura,energia], 
 							            potenciaParaDisminuir = 10
                                  
@@ -115,10 +124,10 @@ const playStation = new MuebleElectrico(
                                             atributoParaAumentar = cordura, 
                                             potenciaParaAumentar = 5,
                                             atributoParaDisminuir = [energia], 
-							                potenciaParaDisminuir = 10
+							                potenciaParaDisminuir = 5
                                         )
 
-const ducha = new Mueble(   
+const ducha = new MuebleDeBanio(   
                             position = game.at(2,2), 
                             image = "PInteraccionArriba.png", 
                             atributoParaAumentar = higiene, 
@@ -127,22 +136,22 @@ const ducha = new Mueble(
 							potenciaParaDisminuir = 10
                         )
 							
-const trono = new Mueble(   
+const trono = new MuebleDeBanio(   
                             position = game.at(4,2), 
                             image = "PInteraccionArriba.png", 
 							atributoParaAumentar = ganasDeIrAlBanio, 
-							potenciaParaAumentar = 10, 
+							potenciaParaAumentar = 100, 
 							atributoParaDisminuir = [higiene], 
-							potenciaParaDisminuir = 100
+							potenciaParaDisminuir = 50
                         )
 							
 const cama = new MuebleDeMadera(    
                                     position = game.at(15,14), 
                                     image = "PuntoInteraccion2.png", 
 						            atributoParaAumentar = energia, 
-							        potenciaParaAumentar = 5 ,
+							        potenciaParaAumentar = 30 ,
 							        atributoParaDisminuir = [hambre], 
-							        potenciaParaDisminuir = 10
+							        potenciaParaDisminuir = 5
                              
                                 )
 							
@@ -152,6 +161,6 @@ const horno = new MuebleElectrico(
 							        atributoParaAumentar = hambre, 
 							        potenciaParaAumentar = 5, 
 							        atributoParaDisminuir = [energia, higiene, ganasDeIrAlBanio], 
-							        potenciaParaDisminuir = 10
+							        potenciaParaDisminuir = 2.5
                                 )
                                 

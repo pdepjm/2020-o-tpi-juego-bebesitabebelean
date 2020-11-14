@@ -11,11 +11,22 @@ class Visual{
     method abrir(){}
 }
 
+class VisualPuerta inherits Visual{
+    
+    override method esAtravesable() = true
+}
+
+
+
 const visualTermica = new Visual(position = game.at(12,7), image = "Termica_Prendida.png")
 const visualEscritorio = new Visual(position = game.at(27,11) , image = "escritorio.png")
 const visualPlayStation = new Visual(position = game.at(21, 13) , image = "Play.png")
 const visualDucha = new Visual(position = game.at(2, 3) , image = "Ducha_sin_agua.png")
 const visualTrono = new Visual(position = game.at(4, 3) , image = "Inodoro.png")
+const visualPuertaHabitacion = new VisualPuerta(position = game.at(17,5) , image = "Muro_invisible.png")
+const visualPuertaSalon = new VisualPuerta(position = game.at(24,5) , image = "Muro_invisible.png")
+const visualPuertaBanio = new VisualPuerta(position = game.at(5,2) , image = "Muro_invisible.png")
+
 
 
 object termica{

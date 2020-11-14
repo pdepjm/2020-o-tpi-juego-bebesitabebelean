@@ -36,7 +36,7 @@ object muro{
         (2 .. 27).forEach({ num => muros.add(new Pared(position = game.at(num, 16)))})
         (1 .. 16).forEach({ num => muros.add(new Pared(position = game.at(28, num)))})
         (1 .. 6).forEach({ num => muros.add(new Pared(position = game.at(num, 6)))})
-        (4 .. 5).forEach({ num => muros.add(new Pared(position = game.at(6, num)))})
+        (3 .. 5).forEach({ num => muros.add(new Pared(position = game.at(6, num)))})
         (13 .. 15).forEach({ num => muros.add(new Pared(position = game.at(4, num)))})
         (9 .. 15).forEach({ num => muros.add(new Pared(position = game.at(2, num)))})
         (2 .. 5).forEach({ num => muros.add(new Pared(position = game.at(num, 4)))})
@@ -47,24 +47,34 @@ object muro{
 
 class Puerta{
 
-    const puertaAbierta
-    const puertaCerrada = "Inodoro.png"
+    const puertaAsignada
     const property position
-    var property image
+    var property image = "Muro_invisible.png"
+    const imagenAsignada
     
     method esAtravesable() = true
     method abrir(){
-        
-        image = puertaAbierta
+    
+        puertaAsignada.image(imagenAsignada)
         game.schedule(1000, {self.cerrar()})
     }
-    method cerrar(){image = puertaCerrada}
+    method cerrar(){
+        puertaAsignada.image("Muro_invisible.png")
+    }
+    
+   
 
 }
 
-const puertaHabitacionIzquierda = new Puerta(puertaAbierta = "Objeto_puerta_izquierda_abierta.png", image = "Inodoro.png", position = game.at(5,2))
-const puertaHabitacionDerecha = new Puerta(puertaAbierta = "Objeto_puerta_derecha_abierta.png", image = "Inodoro.png", position = game.at(6,2))
-const puertaSalonIzquierda = new Puerta(puertaAbierta = "Objeto_puerta_izquierda_abierta.png", image = "Inodoro.png", position = game.at(7,2))
-const puertaSalonDerecha = new Puerta(puertaAbierta = "Objeto_puerta_derecha_abierta.png", image = "Inodoro.png", position = game.at(8,2))
-const puertaDeBanioArriba = new Puerta(puertaAbierta = "Objeto_puerta_banio_abierto.png", image = "Inodoro.png", position = game.at(9,2))
-const puertaDeBanioAbajo = new Puerta(puertaAbierta = "Objeto_puerta_banio_abierto.png", image = "Inodoro.png", position = game.at(10,2))
+const puertaHabitacion1 = new Puerta(puertaAsignada = visualPuertaHabitacion , position = game.at(18,6) , imagenAsignada = "PuertaAbiertaIzquierda.png")
+const puertaHabitacion2 = new Puerta(puertaAsignada = visualPuertaHabitacion , position = game.at(18,9) , imagenAsignada = "PuertaAbiertaIzquierda.png")
+const puertaHabitacion3 = new Puerta(puertaAsignada = visualPuertaHabitacion , position = game.at(17,6) , imagenAsignada = "PuertaAbiertaIzquierda.png")
+const puertaHabitacion4 = new Puerta(puertaAsignada = visualPuertaHabitacion , position = game.at(17,9) , imagenAsignada = "PuertaAbiertaIzquierda.png")
+
+const puertaSalon1 = new Puerta(puertaAsignada = visualPuertaSalon , position = game.at(26,6) , imagenAsignada = "PuertaAbiertaDerecha.png")
+const puertaSalon2 = new Puerta(puertaAsignada = visualPuertaSalon , position = game.at(25,6) , imagenAsignada = "PuertaAbiertaDerecha.png")
+const puertaSalon3 = new Puerta(puertaAsignada = visualPuertaSalon , position = game.at(26,9) , imagenAsignada = "PuertaAbiertaDerecha.png")
+const puertaSalon4 = new Puerta(puertaAsignada = visualPuertaSalon , position = game.at(25,9) , imagenAsignada = "PuertaAbiertaDerecha.png")
+
+const puertaBanio1 = new Puerta(puertaAsignada = visualPuertaBanio , position = game.at(5,2) , imagenAsignada = "PuertaAbiertaBanio.png")
+const puertaBanio2 = new Puerta(puertaAsignada = visualPuertaBanio , position = game.at(6,2) , imagenAsignada = "PuertaAbiertaBanio.png")

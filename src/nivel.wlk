@@ -7,10 +7,12 @@ import atributos.*
 
 object config {
 	
-	const showVisual = #{escritorio, horno, trono, cama, playStation, ducha, energia, hambre, cordura, estudio, higiene, ganasDeIrAlBanio,
-						 termica, visualTermica, visualEscritorio, visualPlayStation, visualDucha, visualTrono, estudiante, fisico,
-						 mental, puertaHabitacionIzquierda, puertaHabitacionDerecha}
-	const showAtributo = #{energia,  hambre, cordura, estudio, higiene, ganasDeIrAlBanio, fisico, mental}
+	const showVisual = [escritorio, horno, trono, cama, playStation, ducha, energia, hambre, cordura, estudio, higiene, ganasDeIrAlBanio,
+						 termica, visualTermica, visualEscritorio, visualPlayStation, visualDucha, visualTrono, fisico,
+						 mental, visualPuertaHabitacion, visualPuertaBanio, visualPuertaSalon, puertaHabitacion1, puertaHabitacion2,
+						 puertaHabitacion3, puertaHabitacion4, puertaSalon1, puertaSalon2, puertaSalon3, puertaSalon4, puertaBanio1, 
+						 puertaBanio2, estudiante]
+	const showAtributo = [energia,  hambre, cordura, estudio, higiene, ganasDeIrAlBanio, fisico, mental]
 	var tieneLag = false
 	var direccion = direccionNormal
 
@@ -132,21 +134,21 @@ object direccionTotalmeteInvertida {
 }	
 
 object arriba{
-	method imagenDelJugador() = "PInteraccionArriba.png"
+	method imagenDelJugador() = "PaquitoEspalda.png"
     method posicionEnEsaDireccion() = estudiante.position().up(1)
 }
 
 object abajo{
-	method imagenDelJugador() = "PInteraccionAbajo.png"
+	method imagenDelJugador() = "PaquitoFrente.png"
     method posicionEnEsaDireccion() = estudiante.position().down(1)
 }
 
 object izquierda{
-	method imagenDelJugador() = "PuntoInteraccion2.png"
+	method imagenDelJugador() = "PaquitoIzquierda.png"
     method posicionEnEsaDireccion() = estudiante.position().left(1)
 }
 
 object derecha{
-	method imagenDelJugador() = "PInteraccionDer.png"
+	method imagenDelJugador() = "PaquitoDerecha.png"
     method posicionEnEsaDireccion() = estudiante.position().right(1)
 }

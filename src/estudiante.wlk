@@ -5,7 +5,7 @@ import atributos.*
 
 object estudiante{
 	
-	var property image = "PinteraccionDer.png"
+	var property image = "PaquitoFrente.png"
 	var property position = game.center()
 	var orientacion = derecha
 	
