@@ -42,7 +42,7 @@ class MuebleElectrico inherits Mueble{
 	
     override method efectoReparacion(){
 
-        util.efectoReparacion(self)
+        estado.efectoReparacion(self)
     }
 
   	override method producirEfecto(){
