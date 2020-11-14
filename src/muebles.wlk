@@ -14,10 +14,8 @@ class Mueble inherits Visual{
 
     method usar(){
         
-        atributoParaAumentar.aumentar(potenciaParaAumentar)
         atributoParaDisminuir.forEach({atributo => atributo.disminuir(potenciaParaDisminuir)})
-        fisico.afectarMovimiento()
-        mental.afectarMovimiento()
+        self.producirEfecto()
     }
 
     method reparar(){
@@ -25,75 +23,75 @@ class Mueble inherits Visual{
         energia.disminuir(5)
         higiene.disminuir(5)
         cordura.aumentar(10)
+
+        self.efectoReparacion()
     }
 
     override method esAtravesable() = true
 
+    method producirEfecto(){}
+
+    method efectoReparacion(){}
 }
 
 class MuebleElectrico inherits Mueble{
 
 	var property estado = util
 	 
-    method quemar(){ estado = quemado }
+    method quemar(){estado = quemado}
 	
-    override method reparar(){
-        
-        if(not termica.estaPrendida()){
-            
-            super()
-            estado = util
-        }
+    override method efectoReparacion(){
+
+        util.efectoReparacion(self)
     }
 
-  	override method usar(){
-	
-	    if(estado.estaEnCondiciones()){
-            
-			super()
-	        self.puedeQuemarse()	
-		}
-		
+  	override method producirEfecto(){
+          
+        atributoParaAumentar.aumentar(potenciaParaAumentar)
+        estado.puedeQuemarse(self)			
     }
-
-	method puedeQuemarse(){
-	
-	    if(1.randomUpTo(100) <= 10)
-		    self.quemar()
-	}	
 }
 
 object util{
+    
+    method efectoReparacion(muebleElectrico){}
 
-    method estaEnCondiciones() = termica.estaPrendida()
+    method puedeQuemarse(muebleElectrico){
+
+        if(self.verificarCondiciones())
+		    muebleElectrico.quemar() //o muebleElectrico.estado(util)
+	}
+
+    method verificarCondiciones() = 1.randomUpTo(100) <= 10 and termica.estaPrendida()
 }
 
 object quemado{
     
-    method estaEnCondiciones() = false
+    method efectoReparacion(muebleElectrico){
+        
+        if(not termica.estaPrendida())
+            muebleElectrico.estado(util)
+    }
+
+    method puedeQuemarse(muebleElectrico){}
 }
 
 class MuebleDeMadera inherits Mueble{
 
 	var property desgaste = 100
 
-	override method usar(){ 
+	override method producirEfecto(){ 
         
 		if(self.estaDesgastado())
 	        atributoParaAumentar.aumentar(potenciaParaAumentar/2)
         else
             atributoParaAumentar.aumentar(potenciaParaAumentar)
 
-        atributoParaDisminuir.forEach({atributo => atributo.disminuir(potenciaParaDisminuir)})
     	desgaste = 0.max(desgaste - 5) 
-       // estudiante.evaluarEstado()
-        fisico.afectarMovimiento()
-        mental.afectarMovimiento()
     }
 
-	override method reparar(){
+	override method efectoReparacion(){
 
-        super()
         desgaste = 100.min(desgaste + 20)
     }
 

@@ -20,7 +20,7 @@ const visualTrono = new Visual(position = game.at(4, 3) , image = "Inodoro.png")
 
 object termica{
 
-    var property estaPrendida = true
+    var property estado = prendida
     const property position = game.at(12,5)
     const property image = "PInteraccionArriba.png" 
     
@@ -28,15 +28,32 @@ object termica{
 
     method esAtravesable() = true
 
+    method estaPrendida() = estado == prendida
+
     method usar(){
-        
-        estaPrendida = not estaPrendida
-        
-        if(estaPrendida)
-            visualTermica.image("Termica_Prendida.png")
-        else
-           visualTermica.image("Termica_ApagadaORota.png") 
+    
+        estado.efectoUso()
     }
 
     method reparar(){}
+}
+
+object prendida{
+    
+    method efectoUso(){
+        
+        termica.estado(apagada)
+        visualTermica.image("Termica_ApagadaORota.png")
+    }
+}
+
+
+object apagada{
+    
+    method efectoUso(){
+        
+        termica.estado(prendida)
+        visualTermica.image("Termica_Prendida.png")
+    }
+  
 }

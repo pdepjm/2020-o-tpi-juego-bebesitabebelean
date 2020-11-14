@@ -32,4 +32,8 @@ object estudiante{
     	game.removeVisual(self)
 		game.addVisual(self)
   	}
+
+	method usar(){}
+
+	method reparar(){}
 }

@@ -29,17 +29,21 @@ class TipoAtributo inherits Visual{
     method aumentarPotenciaEn(cantidad){
         
         potencia = 100.min(potencia + cantidad)
+        self.afectarMovimiento()
     }
 
     method disminuirPotenciaEn(cantidad){
         
         potencia = 0.max(potencia - cantidad)
+        self.afectarMovimiento()
     }
+
+    method afectarMovimiento(){}
 }
 
-class TipoFisico inherits TipoAtributo{
+object fisico inherits TipoAtributo{
     
-    method afectarMovimiento(){
+    override method afectarMovimiento(){
     	
     	if(potencia < 50)
     		config.agregarLag()
@@ -48,12 +52,14 @@ class TipoFisico inherits TipoAtributo{
     }
 }
 
-class TipoMental inherits TipoAtributo{
+object mental inherits TipoAtributo{
     
+    var property nivelMental
+
     method esNivel0() = potencia <= 100 and potencia >= 70
     method esNivel1() = potencia <= 70 and potencia >= 40
 
-    method afectarMovimiento(){
+    override method afectarMovimiento(){
         
         if(self.esNivel0()) 
             config.caminaNormal()
@@ -65,8 +71,8 @@ class TipoMental inherits TipoAtributo{
 }
 
 
-const fisico = new TipoFisico(position = game.at(14,19), image = "pepito.png")
-const mental = new TipoMental(position = game.at(16,19), image = "pepito2.png")
+
+
 const neutro = new TipoAtributo(position = game.at(-1,-1), image = "pepito3.png")
 
 

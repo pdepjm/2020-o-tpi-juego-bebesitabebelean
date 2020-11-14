@@ -6,7 +6,11 @@ import muebles.*
 import atributos.*
 
 object config {
-
+	
+	const showVisual = #{escritorio, horno, trono, cama, playStation, ducha, energia, hambre, cordura, estudio, higiene, ganasDeIrAlBanio,
+						 termica, visualTermica, visualEscritorio, visualPlayStation, visualDucha, visualTrono, estudiante, fisico,
+						 mental, puertaHabitacionIzquierda, puertaHabitacionDerecha}
+	const showAtributo = #{energia,  hambre, cordura, estudio, higiene, ganasDeIrAlBanio, fisico, mental}
 	var tieneLag = false
 	var direccion = direccionNormal
 
@@ -35,6 +39,7 @@ object config {
 	}
 
 	method caminaNormal(){
+		
 		direccion = direccionNormal
 		self.impactar()
 	}
@@ -54,8 +59,9 @@ object config {
 		const movimientoD = {estudiante.mover(direccion.moverDerecha(), direccion.derecha())}
 
 		game.clear()
+		
 		if(tieneLag){
-
+			
 			keyboard.s().onPressDo({game.schedule(1000, movimientoS)})
   			keyboard.w().onPressDo({game.schedule(1000, movimientoW)})
  			keyboard.a().onPressDo({game.schedule(1000, movimientoA)})
@@ -68,9 +74,9 @@ object config {
  			keyboard.a().onPressDo(movimientoA)
   			keyboard.d().onPressDo(movimientoD)
 		}
-
-		keyboard.e().onPressDo({game.uniqueCollider(estudiante).usar()})
-		keyboard.r().onPressDo({game.uniqueCollider(estudiante).reparar()})
+		
+		keyboard.e().onPressDo({game.getObjectsIn(estudiante.position()).forEach({colisionado => colisionado.usar()})})
+		keyboard.r().onPressDo({game.getObjectsIn(estudiante.position()).forEach({colisionado => colisionado.reparar()})})
 		
 		self.configurarVisuales()
 		self.colisiones()
@@ -78,78 +84,16 @@ object config {
 
 	method configurarVisuales(){
 
-		game.addVisual(escritorio)
-		game.addVisual(horno)
-		game.addVisual(trono)
-		game.addVisual(cama)
-		game.addVisual(playStation)
-		game.addVisual(ducha)
-		game.addVisual(energia)
-		game.addVisual(hambre)
-		game.addVisual(cordura)
-		game.addVisual(estudio)
-		game.addVisual(higiene)
-		game.addVisual(ganasDeIrAlBanio)
-		game.addVisual(termica)
-		game.addVisual(visualTermica)
-		game.addVisual(visualEscritorio)
-		game.addVisual(visualPlayStation)
-		game.addVisual(visualDucha)
-		game.addVisual(visualTrono)
-		game.addVisual(estudiante)
-		game.addVisual(fisico)
-		game.addVisual(mental)
-		game.addVisual(puertaHabitacionIzquierda)
-		game.addVisual(puertaHabitacionDerecha)
-	/*	game.addVisual(puertaSalonIzquierda)
-		game.addVisual(puertaSalonDerecha)
-		game.addVisual(puertaDeBanioArriba)
-		game.addVisual(puertaDeBanioAbajo)
-		game.addVisual(puertaSalonDerecha)
-		game.addVisual(puertaDeBanioArriba)
-		game.addVisual(puertaDeBanioAbajo)
-		game.addVisual(puertaSalonDerecha)
-		game.addVisual(puertaDeBanioArriba)
-		game.addVisual(puertaDeBanioAbajo)
-		game.addVisual(puertaSalonDerecha)
-		game.addVisual(puertaDeBanioArriba)
-		game.addVisual(puertaDeBanioAbajo)
-		game.addVisual(puertaSalonDerecha)
-		game.addVisual(puertaDeBanioArriba)
-		game.addVisual(puertaDeBanioAbajo)
-		game.addVisual(puertaSalonDerecha)
-		game.addVisual(puertaDeBanioArriba)
-		game.addVisual(puertaDeBanioAbajo)
-		game.addVisual(puertaSalonDerecha)
-		game.addVisual(puertaDeBanioArriba)
-		game.addVisual(puertaDeBanioAbajo)*/
-		game.showAttributes(estudiante)
-		game.showAttributes(energia)
-		game.showAttributes(hambre)
-		game.showAttributes(cordura)
-		game.showAttributes(estudio)
-		game.showAttributes(higiene)
-		game.showAttributes(ganasDeIrAlBanio)
-		game.showAttributes(fisico)
-		game.showAttributes(mental)
-		game.showAttributes(estudiante)
-		game.showAttributes(energia)
-		game.showAttributes(hambre)
-		game.showAttributes(cordura)
-		game.showAttributes(estudio)
-		game.showAttributes(higiene)
-		game.showAttributes(ganasDeIrAlBanio)
-		game.showAttributes(fisico)
-		game.showAttributes(mental)
+		showVisual.forEach({visual => game.addVisual(visual)})
+		showAtributo.forEach({atributo => game.showAttributes(atributo)})
 		muro.generarMuros()
 	}
 
 	method colisiones(){
 		
-		game.whenCollideDo(estudiante,{elemento => elemento.abrir()})
+		game.whenCollideDo(estudiante, {elemento => elemento.abrir()})
 	}
 }
-
 
 object direccionNormal {
 	

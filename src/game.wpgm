@@ -1,6 +1,6 @@
 import wollok.game.*
 import nivel.*
-
+import atributos.*
 
 program game{
 
@@ -8,9 +8,12 @@ program game{
 	game.height(20)
 	game.width(30)
 	game.boardGround("Apartment.png")
+	fisico.position(game.at(14,19))
+	fisico.image("qcy.jpg")
+	mental.position(game.at(16,19))
+	mental.image("qcy.jpg")
 	config.impactar()
-	
-	
+
 	game.start()	
 }
 
