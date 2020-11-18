@@ -1,6 +1,7 @@
 import wollok.game.*
 import nivel.*
 import atributos.*
+import extras.*
 
 program game{
 
@@ -8,11 +9,16 @@ program game{
 	game.height(20)
 	game.width(30)
 	game.boardGround("Apartment.png")
-	fisico.position(game.at(14,19))
-	fisico.image("qcy.jpg")
-	mental.position(game.at(16,19))
-	mental.image("qcy.jpg")
+	fisico.position(game.at(16,19))
+	fisico.image("BrazoFuerte.png")
+	mental.position(game.at(18,19))
+	mental.image("CerebroToChill.png")
+	menu.position(game.origin())
+	menu.image("menu.png")
+	final.position(game.origin())
 	config.impactar()
+	game.addVisual(menu)
+	musica.reproducirMusicaFondo()
 
 	game.start()	
 }

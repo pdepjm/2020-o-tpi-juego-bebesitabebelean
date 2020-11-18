@@ -39,6 +39,12 @@ class MuebleElectrico inherits Mueble{
 	var property estado = util
 	 
     method quemar(){estado = quemado}
+
+    override method usar(){
+
+        if(self.puedeUsarse())
+            super()
+    }
 	
     override method efectoReparacion(){
 
@@ -50,6 +56,8 @@ class MuebleElectrico inherits Mueble{
         atributoParaAumentar.aumentar(potenciaParaAumentar)
         estado.puedeQuemarse(self)			
     }
+
+    method puedeUsarse() = estado == util
 }
 
 object util{
@@ -71,6 +79,8 @@ object quemado{
         
         if(not termica.estaPrendida())
             muebleElectrico.estado(util)
+        else
+            final.electrico()
     }
 
     method puedeQuemarse(muebleElectrico){}

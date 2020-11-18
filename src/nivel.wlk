@@ -79,7 +79,8 @@ object config {
 		
 		keyboard.e().onPressDo({game.getObjectsIn(estudiante.position()).forEach({colisionado => colisionado.usar()})})
 		keyboard.r().onPressDo({game.getObjectsIn(estudiante.position()).forEach({colisionado => colisionado.reparar()})})
-		
+		keyboard.enter().onPressDo({self.iniciarJuego()})
+
 		self.configurarVisuales()
 		self.colisiones()
 	}
@@ -94,6 +95,11 @@ object config {
 	method colisiones(){
 		
 		game.whenCollideDo(estudiante, {elemento => elemento.abrir()})
+	}
+
+	method iniciarJuego(){
+
+		menu.desaparecer()
 	}
 }
 

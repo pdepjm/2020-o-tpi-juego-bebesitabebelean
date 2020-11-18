@@ -11,6 +11,7 @@ class Atributo inherits Visual{
 
         nivelAtributo = 100.min(nivelAtributo + cantidad)
         tipoAtributo.aumentarPotenciaEn(cantidad/2)
+        final.promocion()
     }
 
 
@@ -19,6 +20,8 @@ class Atributo inherits Visual{
         nivelAtributo = 0.max(nivelAtributo - cantidad)
         tipoAtributo.disminuirPotenciaEn(cantidad/2)
     }
+
+    method maximo() = nivelAtributo == 100   
 }
 
 
@@ -45,10 +48,14 @@ object fisico inherits TipoAtributo{
     
     override method afectarMovimiento(){
     	
-    	if(potencia < 50)
+    	if(potencia < 50){
     		config.agregarLag()
-    	else 
+            image = "BrazoDebil.png"
+        }
+    	else{ 
             config.sinLag()
+            image = "BrazoFuerte.png"
+        }
     }
 }
 
@@ -61,12 +68,18 @@ object mental inherits TipoAtributo{
 
     override method afectarMovimiento(){
         
-        if(self.esNivel0()) 
+        if(self.esNivel0()){ 
             config.caminaNormal()
-        else if (self.esNivel1()) 
+            image = "CerebroToChill.png"
+        }
+        else if (self.esNivel1()){ 
             config.semiInvertir()
-        else 
+            image = "CerebroLoco.png"
+        }
+        else{ 
             config.invertirTotalmente()
+            image = "CerebroUnts.png"
+        }
     }
 }
 

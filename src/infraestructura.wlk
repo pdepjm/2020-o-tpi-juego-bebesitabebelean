@@ -71,9 +71,9 @@ const puertaHabitacion2 = new Puerta(puertaAsignada = visualPuertaHabitacion , p
 const puertaHabitacion3 = new Puerta(puertaAsignada = visualPuertaHabitacion , position = game.at(17,6) , imagenAsignada = "PuertaAbiertaIzquierda.png")
 const puertaHabitacion4 = new Puerta(puertaAsignada = visualPuertaHabitacion , position = game.at(17,9) , imagenAsignada = "PuertaAbiertaIzquierda.png")
 
-const puertaSalon1 = new Puerta(puertaAsignada = visualPuertaSalon , position = game.at(26,6) , imagenAsignada = "PuertaAbiertaDerecha.png")
+const puertaSalon1 = new Puerta(puertaAsignada = visualPuertaSalon , position = game.at(24,6) , imagenAsignada = "PuertaAbiertaDerecha.png")
 const puertaSalon2 = new Puerta(puertaAsignada = visualPuertaSalon , position = game.at(25,6) , imagenAsignada = "PuertaAbiertaDerecha.png")
-const puertaSalon3 = new Puerta(puertaAsignada = visualPuertaSalon , position = game.at(26,9) , imagenAsignada = "PuertaAbiertaDerecha.png")
+const puertaSalon3 = new Puerta(puertaAsignada = visualPuertaSalon , position = game.at(24,9) , imagenAsignada = "PuertaAbiertaDerecha.png")
 const puertaSalon4 = new Puerta(puertaAsignada = visualPuertaSalon , position = game.at(25,9) , imagenAsignada = "PuertaAbiertaDerecha.png")
 
 const puertaBanio1 = new Puerta(puertaAsignada = visualPuertaBanio , position = game.at(5,2) , imagenAsignada = "PuertaAbiertaBanio.png")
